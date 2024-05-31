@@ -1,0 +1,302 @@
+@charset "UTF-8";
+#app {
+  width: 100%;
+  height: auto;
+}
+#app nav {
+  width: calc(100% - 240px);
+  height: 60px;
+  background-color: transparent;
+  color: var(--nav_color);
+  display: flex;
+  align-items: center;
+  padding: 0 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+#app nav .left {
+  width: 60%;
+}
+#app nav .right {
+  width: 40%;
+  display: flex;
+  justify-content: right;
+}
+#app nav .right a:nth-of-type(-n+2) {
+  margin-right: 20px;
+  cursor: pointer;
+}
+#app nav a {
+  color: var(--nav_color);
+  margin-right: 20px;
+}
+#app nav a:last-child {
+  margin-right: 0px;
+}
+#app header {
+  height: 500px;
+}
+#app header > .dynamic_shuffl {
+  height: 500px;
+  position: absolute;
+  overflow: hidden;
+  transition: all 1s;
+  opacity: 0;
+}
+#app header > .dynamic_shuffl:first-child {
+  opacity: 1;
+}
+#app header > .dynamic_shuffl img {
+  width: 1690px;
+  position: relative;
+  top: -200px;
+}
+#app main {
+  width: calc(100% - 240px);
+  padding: 60px 120px;
+  min-height: 1500px;
+  background-color: var(--main_bg);
+  color: var(--main_color);
+  justify-content: center;
+}
+#app main .main {
+  width: 1200px;
+  min-height: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+#app main .main .left {
+  width: 69%;
+  height: 100px;
+}
+#app main .main .left .card {
+  padding: 20px 20px 10px 10px;
+}
+#app main .main .left .que_article > .body {
+  background-color: transparent;
+}
+#app main .main .left .que_article > .body > ul {
+  width: 100%;
+}
+#app main .main .left .que_article > .body > ul > li {
+  width: 100%;
+  display: flex;
+  background-color: white;
+}
+#app main .main .left .que_article > .body > ul > li .img {
+  width: 30%;
+  box-sizing: border-box;
+  padding: 10px 10px 20px 20px;
+}
+#app main .main .left .que_article > .body > ul > li .img img {
+  width: 130px;
+}
+#app main .main .left .que_article > .body > ul > li .img img:hover {
+  transform: scale(1.2);
+}
+#app main .main .left .que_article > .body > ul > li .text {
+  position: relative;
+  width: 70%;
+  padding: 10px 20px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#app main .main .left .que_article > .body > ul > li .text .article_info {
+  font-size: 14px;
+  color: #555;
+}
+#app main .main .left .que_article > .body > ul > li .text h2 {
+  font-size: 23px;
+}
+#app main .main .left .que_article > .body > ul > li .text p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#app main .main .left .que_article > .body > ul > li .text > button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: 0;
+  border-radius: 5px;
+}
+#app main .main .left .que_article > .body > div {
+  margin-bottom: 20px;
+}
+#app main .main .card .title {
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #26ce26;
+  padding: 20px 20px 10px 10px;
+  background-color: white;
+}
+#app main .main .card .title h2 {
+  font-size: 20px;
+  flex-grow: 1; /* 让 h2 元素占据剩余空间 */
+}
+#app main .main .card .body {
+  border-radius: 0 0 5px 5px;
+  padding: 10px 20px 20px 20px;
+  background-color: white;
+}
+#app main .main .right {
+  width: 30%;
+  height: 100px;
+  background-color: white;
+}
+#app main .main .right > div {
+  margin-bottom: 20px;
+}
+#app main .main .right .tags > .body {
+  position: relative;
+}
+#app main .main .right .tags > .body ul {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+@keyframes move_box {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: calc(100% - 20px);
+    top: 0;
+  }
+  50% {
+    top: calc(100% - 20px);
+    left: calc(100% - 20px);
+  }
+  75% {
+    left: 0px;
+    top: calc(100% - 20px);
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+#app main .main .right .tags > .body ul::before {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  content: "";
+  background-color: #ff9800;
+  -webkit-animation-name: move_box;
+  animation-name: move_box;
+  -moz-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+#app main .main .right .tags > .body ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  height: 33px;
+  box-sizing: border-box;
+}
+#app main .main .right .tags > .body ul li:nth-child(6n+1), #app main .main .right .tags > .body ul li:nth-child(6n+2), #app main .main .right .tags > .body ul li:nth-child(6n+3) {
+  background-color: #f5f5f5;
+}
+#app main .main .right .tags > .body ul li:nth-child(3n+1), #app main .main .right .tags > .body ul li:nth-child(3n+2), #app main .main .right .tags > .body ul li:nth-child(3n+3) {
+  border-left: 1px solid black;
+}
+#app footer {
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  background-color: var(--footer_bg);
+  color: var(--footer_color);
+}
+#app footer p {
+  padding: 7px 0;
+}
+#app footer .left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#app footer .right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#app footer .right .contact {
+  display: flex;
+  justify-content: center;
+}
+#app footer .right .contact > div {
+  position: relative;
+}
+#app footer .right .contact > div .qq {
+  position: absolute;
+  width: 80px;
+  top: -20px;
+  left: -14px;
+  opacity: 0;
+  transition: 0.4s;
+}
+#app footer .right .contact > div .svg {
+  width: 40px;
+  z-index: 1;
+  position: relative;
+}
+#app footer .right .contact > div .svg:hover ~ .qq {
+  top: -83px;
+  left: -14px;
+  opacity: 1;
+}
+#app footer .thank {
+  color: #26ce26;
+  font-size: 20px;
+}
+#app footer .site_info {
+  display: flex;
+}
+#app footer .site_info span {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+#app footer .site_info span img {
+  margin-right: 10px;
+}
+#app footer .version {
+  display: flex;
+}
+#app footer .version span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #26ce26;
+  background-color: black;
+  height: 30px;
+  width: 60px;
+}
+#app footer .version span:nth-child(1) {
+  background-color: #ff9800;
+  border-radius: 5px 0 0 5px;
+}
+#app footer .version span:nth-child(2) {
+  background-color: #1ee7bc;
+  border-radius: 0 5px 5px 0;
+}
+
+/*# sourceMappingURL=index.css.map */
